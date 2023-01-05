@@ -1,0 +1,28 @@
+* {
+  color: white;
+}
+
+body {
+  background-color: rgb(43, 43, 73);
+
+}
+
+button {
+  background-color: #111;
+  padding: 5px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  transition-duration: .3s;
+}
+
+button:hover {
+  background-color:#EEE;
+  color: #111;
+}
+
+
+#game-area {
+  max-width: 800px;
+  padding: 2rem;
+}
