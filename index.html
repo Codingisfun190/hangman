@@ -6,16 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hangman Game</title>
+  <link rel="stylesheet" href="reset.css">
+  </link>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <section id="game-area">
-    <h1>Hangman Game</h1>
+    <h1 class="mb-1">Hangman Game</h1>
 
     <form>
       <label for="user-input">Enter a letter</label>
-      <input type="text" name="user-input" id="user-input">
+      <input type="text" name="user-input" id="user-input" placeholder="Enter your guess. . .">
       <button type="submit" id="submit">Guess!</button>
     </form>
   </section>
