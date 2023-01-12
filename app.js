@@ -12,17 +12,30 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     event.stopPropagation();
       // get user's guess
-  let guessedLetter = userInput.value;
-  
+  let guessedLetter = userInput.value.toUpperCase();
 
-  guessedList.push(`<p class="card">${guessedLetter}</p>`);
+  // validate not empty
+  // only add unique letters -- no duplicates
+  // TODO only allow letters
+  if (guessedLetter && !guessedList.includes(guessedLetter)) {
+
+    // append to list
+    guessedList.push(guessedLetter);
+
+    guessBankIncorrect.innerHTML += `<p class="card">${guessedList[guessedList.length - 1]}</p>`;
+}
+
+
+  // remove letter after guessing && focus on userInput
+  userInput.value ="";
+  userInput.focus();
 
   // Loop through list to display guessed letters
   
-  guessedList.forEach(item => {
-    // TODO fix display bug
-    guessBankIncorrect.innerHTML += item;
-  })
+ 
+  
+    console.log(guessedList);
+    console.log(guessedList.length);
   
 
   }) 
