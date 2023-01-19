@@ -27,12 +27,8 @@ const wordBank = [
   }
   word.innerHTML = blankCards;
 
-  // show correct guesses
+  
   // show man hanging progression
-
-
-
-
 
 
   // prevent page from refreshing
@@ -48,10 +44,27 @@ const wordBank = [
   // TODO only allow letters
   if (guessedLetter && !guessedList.includes(guessedLetter)) {
 
-    // append to list
-    guessedList.push(guessedLetter);
+    // handle guesses
+    if (randomWord.includes(guessedLetter)) {
+      // show correct letters
+      let tempCards = "";
+      for (let i = 0; i < randomWord.length; i++) {
+        if (randomWord[i] === guessedLetter) {
+          tempCards += `<p class="card">${guessedLetter}</p>`
+        } else {
+          tempCards += `<p class="card"></p>`
+        }
+      }
+      word.innerHTML = tempCards;
 
+
+    } else {
+      // append to incorrect list
+    guessedList.push(guessedLetter);
+    // Loop through list to display guessed letters
     guessBankIncorrect.innerHTML += `<p class="card">${guessedList[guessedList.length - 1]}</p>`;
+    }
+
   }
 
 
@@ -59,7 +72,7 @@ const wordBank = [
   userInput.value ="";
   userInput.focus();
 
-  // Loop through list to display guessed letters
+  
   
  
   
