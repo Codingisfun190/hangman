@@ -41,12 +41,14 @@ const wordBank = [
 
   // validate not empty
   // only add unique letters -- no duplicates
-  // TODO only allow letters
+  // TODO only allow letters -- no special characters or numbers
   if (guessedLetter && !guessedList.includes(guessedLetter)) {
 
     // handle guesses
     if (randomWord.includes(guessedLetter)) {
       // show correct letters
+
+      //TODO fix resetting previously correct guesses
       let tempCards = "";
       for (let i = 0; i < randomWord.length; i++) {
         if (randomWord[i] === guessedLetter) {
@@ -57,7 +59,7 @@ const wordBank = [
       }
       word.innerHTML = tempCards;
 
-
+      
     } else {
       // append to incorrect list
     guessedList.push(guessedLetter);
@@ -65,26 +67,20 @@ const wordBank = [
     guessBankIncorrect.innerHTML += `<p class="card">${guessedList[guessedList.length - 1]}</p>`;
     }
 
-  }
+    // TODO check win/lose
 
+  }
 
   // remove letter after guessing && focus on userInput
   userInput.value ="";
   userInput.focus();
 
   
-  
- 
-  
     console.log(guessedList);
     console.log(guessedList.length);
   
-
   })  
  
-
-
-
 });
 
 
