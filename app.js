@@ -38,7 +38,6 @@ const wordBank = [
     event.stopPropagation();
 
     handleGuess();
-    handleWinLose();
     
 
   // remove letter after guessing && focus on userInput
@@ -81,6 +80,8 @@ const wordBank = [
             if (randomWord[i] === guessedLetter) {
               word[i] = `<p class="card">${guessedLetter}</p>`;
               letter.innerText= guessedLetter
+
+              handleWinLose();
             }
           }
         })
@@ -100,14 +101,13 @@ const wordBank = [
   }
 
   function handleWinLose () {
-    let hasBlank = false;
-   Array.from(word.children).forEach(letter => {
-    if(!letter.innerText) {
-      hasBlank = true;
-      console.log(hasBlank)
+    let hasBlank = Array.from(word.children).some(letter => !letter.innerText)
+      
+    
+    if (!hasBlank) {
+      console.log("You WIN!!")
     }
-   })
-  }
+   }
 
 });
 
