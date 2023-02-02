@@ -15,20 +15,21 @@ const wordBank = [
   "melon"
 ]
 
+
+
   // show a word to guess
   const word = document.getElementById("word")
-  let randomIndex = Math.floor(Math.random() * wordBank.length);
-  // pick random word
-  let randomWord = wordBank[randomIndex].toUpperCase();
-  // show characters as blank card
-  let blankCards = "";
-  for (let i = 0; i < randomWord.length; i++) {
-    blankCards += `<p class="card"></p>`;
-  }
-  word.innerHTML = blankCards;
+  let randomWord = newWord();
+  word.innerHTML = newWordDisplay();
 
   
   // show man hanging progression
+    // left leg
+    // right leg
+    // body
+    // left arm
+    // right arm
+    // head
 
 
   // prevent page from refreshing
@@ -49,6 +50,21 @@ const wordBank = [
     console.log(guessedList.length);
   
   })  
+
+  function newWord() {
+    // pick random word
+    let randomIndex = Math.floor(Math.random() * wordBank.length);
+    return wordBank[randomIndex].toUpperCase();
+  }
+
+  function newWordDisplay() {
+    // show characters as blank card
+    let blankCards = "";
+    for (let i = 0; i < randomWord.length; i++) {
+      blankCards += `<p class="card"></p>`;
+    }
+    return blankCards;
+  }
  
   function handleGuess () {
     // get user's guess
@@ -95,7 +111,8 @@ const wordBank = [
       guessBankIncorrect.innerHTML += `<p class="card">${guessedList[guessedList.length - 1]}</p>`;
       }
   
-      
+      // update hangman image
+      updateHangman();
   
     }
   }
@@ -106,7 +123,23 @@ const wordBank = [
     
     if (!hasBlank) {
       console.log("You WIN!!")
+
+      // TODO reset the random word
+      randomWord = newWord();
+      word.innerHTML = newWordDisplay();
+
+      // remove all incorrect letters
+      gussedList = new Array;
+      guessBankIncorrect.innerHTML = "";
+      // update win streak
+      const winStreak = document.getElementById("win-streak")
+      winStreak.innerText = parseInt(winStreak.innerText) + 1
+      // remove hangman progression
     }
+   }
+
+   function updateHangman() {
+
    }
 
 });
