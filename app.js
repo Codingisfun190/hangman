@@ -119,22 +119,21 @@ const wordBank = [
    function handleLose() {
 
     // show man hanging progression
-    // left leg
-    // right leg
-    // body
-    // left arm
-    // right arm
-    // head
+      //0 head
+      //1 body
+      //2 left arm
+      //3 right arm
+      //4 left leg
+      //5 right leg
 
     // check progression
     if (hangmanProgress > 4) {
       // lose
-      hanger.innerHTML = "You Lose!";
       resetGame(false);
     } else {
       // updade hangman
       hangmanProgress += 1;
-      hanger.innerHTML = hangmanProgress;
+      document.querySelector(`.overlay-${hangmanProgress - 1}`).classList.add("d-none");
       
     }
 
