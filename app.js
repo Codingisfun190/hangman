@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   
   const userInput = document.getElementById("user-input");
-  const submitButton = document.getElementById("submit")
+  const submitButton = document.getElementById("submit");
   const guessBankIncorrect = document.querySelector(".guess-bank[data-type=incorrect]");
   let guessedList = new Array;
   let hangmanProgress = 0;
