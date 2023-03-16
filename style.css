@@ -68,6 +68,7 @@ label {
   max-width: 800px;
   padding: 2rem;
   text-align: center;
+  position: relative;
 }
 
 .grid-2 {
@@ -189,4 +190,20 @@ div.overlay-5 {
   color:#EEE;
   min-width: 2rem;
   min-height: 3rem;
+}
+
+#modal {
+  background: #222222ee;
+  padding: 50px;
+  font-size: 7rem;
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60vw;
+  height: 27vh;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
